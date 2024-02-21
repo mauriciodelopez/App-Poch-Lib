@@ -14,7 +14,7 @@ document.getElementById('cancelButton').addEventListener('click', function() {
 //Cette partie du code ajoute un écouteur d'événements au formulaire de recherche. Lorsque le formulaire est soumis, il empêche la soumission par défaut du formulaire, récupère les valeurs des champs "bookTitle" et "author", et si ces valeurs existent, il appelle la fonction searchBooks().
 document.getElementById('searchForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Empêche la soumission du formulaire par défaut
-
+    //var variable
     var bookTitle = document.getElementById('bookTitle').value;
     var author = document.getElementById('author').value;
 
