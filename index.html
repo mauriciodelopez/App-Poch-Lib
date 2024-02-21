@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Poch'Lib</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="myBooks">
+        <img src="logo.png" alt="Logo">
+        <h1 class="title">Poch'Lib</h1>
+        <button id="addBookButton">Ajouter un livre</button>
+        <div id="addBookForm" style="display: none;">
+            <form id="searchForm">
+                <label for="bookTitle">Titre du livre</label>
+                <input type="text" id="bookTitle" name="bookTitle" required>
+                <label for="author">Auteur</label>
+                <input type="text" id="author" name="author" required>
+                <input type="submit" value="Rechercher">
+                <button id="cancelButton" type="button">Annuler</button>
+            </form>
+        </div>
+        <div id="results"></div>
+        <div id="resultats">
+            <h2>Ma poch'liste</h2>
+            <!-- La poch'liste sera affichée ici -->
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poch'Lib</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Your CSS file -->
+<!--</head>
+<body>
+    <div id="myBooks">
+        <h1 class="title">Poch'Lib</h1>
+        <button id="addBookButton">Ajouter un livre</button>
+        <form id="searchForm" class="hidden">
+            <input type="text" id="bookTitle" placeholder="Titre du livre" required>
+            <input type="text" id="bookAuthor" placeholder="Auteur" required>
+            <button type="submit">Search</button>
+            <button type="button" id="cancelButton">Annuler</button>
+        </form>
+        <div id="searchResults" class="hidden" style="display: none;"></div>
+        <hr>
+        <div id="content">
+            <h2>Ma poch'liste</h2>
+            <ul id="bookList"></ul>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>-->
