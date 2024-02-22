@@ -89,19 +89,11 @@ function displayResults(data) {
 //La fonction displayPochList est utilisée pour afficher une liste de livres qui sont stockés dans le stockage de session du navigateur.
 //En résumé, cette fonction récupère les données de chaque livre dans le 'pochList' du stockage de session, crée un nouveau div pour chaque livre avec ses données, et l'ajoute au HTML.
 function displayPochList() {
-    //Cette ligne récupère l'élément 'pochList' du stockage de session, le parse d'une chaîne JSON en un objet JavaScript (ou tableau dans ce cas), et l'assigne à la variable pochList. Si 'pochList' n'existe pas dans le stockage de session, elle se réinitialise à un tableau vide.
-    var pochList = JSON.parse(sessionStorage.getItem('pochList')) || [];
-    //var pochList = JSON.parse(localStorage.getItem('pochList')) || [];
-    //Cette ligne récupère l'élément HTML avec l'id 'pochList' et l'assigne à la variable pochListDiv.
+    var pochList = JSON.parse(localStorage.getItem('pochList')) || [];
     var pochListDiv = document.getElementById('pochList');
-    //Cette ligne efface le HTML interne de pochListDiv, supprimant ainsi tous les livres précédemment affichés.
-    pochListDiv.innerHTML = ''; // Clear the current pochList in the HTML
+    pochListDiv.innerHTML = ''; // Efface la liste actuelle dans le HTML
 
-    //La boucle forEach itère sur chaque élément du tableau pochList. Chaque élément est un ID de livre.
-    pochList.forEach(function(id) {
-        // Fetch the book data Dans la boucle, fetchBook(id).then(function(book) {...}); est utilisé pour récupérer les données de chaque livre en utilisant son ID. On suppose que fetchBook est une fonction qui récupère les données du livre et renvoie une Promesse.
-        //Une fois la Promesse résolue, un nouvel élément div est créé et peuplé avec les données du livre, y compris le titre, l'ID, l'auteur, la description, l'image, et une icône de suppression. Ce div est ensuite ajouté à pochListDiv, l'ajoutant au HTML.
-        //L'icône de suppression a un attribut de données data-id qui contient l'ID du livre. Cela peut être utilisé pour identifier quel livre supprimer lorsque l'icône est cliquée.
+    pochList.forEach(function(id) {  
         fetchBook(id).then(function(book) {
             var result = document.createElement('div');
             result.innerHTML = `
@@ -111,20 +103,32 @@ function displayPochList() {
                 <p>Description: ${book.description}</p> 
                 <img src="${book.image}" alt="Image du livre"> 
                 <i class="fas fa-trash delete" data-id="${book.id}"></i> `;
+
+            // Ajoute l'écouteur d'événements après la création de l'élément
+            result.querySelector('.delete').addEventListener('click', function() {
+                removeBookFromPochList(id);
+                // Recharge la liste après la suppression d'un livre
+                displayPochList();
+            });
+
             pochListDiv.appendChild(result);
         });
     });
 }
 
 
+
 //Cette fonction ajoute un livre à la liste de livres à lire (pochList). Elle vérifie d'abord si le livre est déjà dans la liste. Si ce n'est pas le cas, elle ajoute le livre à la liste et met à jour la liste dans le sessionStorage.
 function addBookToPochList(id) {
-    var pochList = JSON.parse(sessionStorage.getItem('pochList')) || [];
+    //var pochList = JSON.parse(sessionStorage.getItem('pochList')) || [];
+    var pochList = JSON.parse(localStorage.getItem('pochList')) || [];
     if (pochList.includes(id)) {
         alert('Vous ne pouvez ajouter deux fois le même livre');
     } else {
-        pochList.push(id);
-        sessionStorage.setItem('pochList', JSON.stringify(pochList));
+        console.log("FUNCIONAAAAA")
+        pochList.push(id);//
+        //sessionStorage.setItem('pochList', JSON.stringify(pochList));// Cette ligne stocke la liste de lecture dans le sessionStorage.
+        localStorage.setItem('pochList', JSON.stringify(pochList));
         var book = document.querySelector(`[data-id="${id}"]`).parentNode.cloneNode(true);
         book.querySelector('.bookmark').className = 'fas fa-trash delete';
         book.querySelector('.delete').addEventListener('click', function() {
@@ -132,33 +136,46 @@ function addBookToPochList(id) {
         });
         document.getElementById('pochList').appendChild(book);
     }
+
 }
 
+//Cette fonction supprime un livre de la liste de livres à lire. Elle trouve l'index du livre dans la liste, le supprime de la liste et met à jour la liste dans le sessionStorage.
 function removeBookFromPochList(id) {
-    var pochList = JSON.parse(sessionStorage.getItem('pochList')) || [];
+    //var pochList = JSON.parse(sessionStorage.getItem('pochList'));
+    var pochList = JSON.parse(localStorage.getItem('pochList'));
     var index = pochList.indexOf(id);
     
     if (index !== -1) {
         pochList.splice(index, 1);
-        sessionStorage.setItem('pochList', JSON.stringify(pochList));
-        
-        // Selecciona el elemento del libro en la página web
-        var bookElement = document.querySelector(`#pochList [data-id="${id}"]`).parentNode;
-        
-        // Elimina el elemento del libro de la página web
-        if (bookElement) {
-            bookElement.remove();
-        }
+        //sessionStorage.setItem('pochList', JSON.stringify(pochList));
+        localStorage.setItem('pochList', JSON.stringify(pochList));
+        var book = document.querySelector(`[data-id="${id}"]`);
+        book.parentNode.removeChild(book);
     }
 }
+function fetchBook(id) {
+    let url = 'https://www.googleapis.com/books/v1/volumes/' + id;
+
+    return fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            let book = {
+                id: data.id,
+                title: data.volumeInfo.title,
+                author: data.volumeInfo.authors ? data.volumeInfo.authors[0] : 'Information manquante',
+                description: data.volumeInfo.description ? data.volumeInfo.description.substring(0, 200) : 'Information manquante',
+                image: data.volumeInfo.imageLinks ? data.volumeInfo.imageLinks.thumbnail : 'unavailable.png'
+            };
+            return book;
+        })
+        .catch(error => console.error('Error:', error));
+}
 //Cette partie du code ajoute un écouteur d'événements à l'objet window. Lorsque la page est chargée, elle récupère la liste de livres à lire du sessionStorage et appelle la fonction fetchBook() pour chaque livre de la liste.
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    let pochList = JSON.parse(localStorage.getItem('pochList')) || [];
+    console.log('pochList',pochList)
     displayPochList();
-    var pochList = JSON.parse(sessionStorage.getItem('pochList')) || [];
-    //var pochList = JSON.parse(localStorage.getItem('pochList')) || [];
-    pochList.forEach(function(id) {
-        fetchBook(id);
-    });
+    
 });
 
 // ...
