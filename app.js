@@ -62,8 +62,7 @@ function displayResults(data) {
                 <p>Auteur: ${author}</p> 
                 <p>Description: ${description}</p> 
                 <img src="${image}" alt="Image du livre"> 
-                <i class="fas fa-bookmark bookmark" data-id="${id}"></i> 
-            `;
+                <i class="fas fa-bookmark bookmark" data-id="${id}"></i> `;
             //Cette ligne de code JavaScript ajoute un nœud enfant à l'élément resultsDiv
             //Cette ligne appelle la méthode appendChild sur l'objet resultsDiv. 
             //La méthode appendChild ajoute un nœud à la fin de la liste des enfants d'un nœud parent spécifié. 
@@ -87,6 +86,36 @@ function displayResults(data) {
         resultsDiv.textContent = 'Aucun livre n’a été trouvé';
     }
 }
+//La fonction displayPochList est utilisée pour afficher une liste de livres qui sont stockés dans le stockage de session du navigateur.
+//En résumé, cette fonction récupère les données de chaque livre dans le 'pochList' du stockage de session, crée un nouveau div pour chaque livre avec ses données, et l'ajoute au HTML.
+function displayPochList() {
+    //Cette ligne récupère l'élément 'pochList' du stockage de session, le parse d'une chaîne JSON en un objet JavaScript (ou tableau dans ce cas), et l'assigne à la variable pochList. Si 'pochList' n'existe pas dans le stockage de session, elle se réinitialise à un tableau vide.
+    var pochList = JSON.parse(sessionStorage.getItem('pochList')) || [];
+    //Cette ligne récupère l'élément HTML avec l'id 'pochList' et l'assigne à la variable pochListDiv.
+    var pochListDiv = document.getElementById('pochList');
+    //Cette ligne efface le HTML interne de pochListDiv, supprimant ainsi tous les livres précédemment affichés.
+    pochListDiv.innerHTML = ''; // Clear the current pochList in the HTML
+
+    //La boucle forEach itère sur chaque élément du tableau pochList. Chaque élément est un ID de livre.
+    pochList.forEach(function(id) {
+        // Fetch the book data Dans la boucle, fetchBook(id).then(function(book) {...}); est utilisé pour récupérer les données de chaque livre en utilisant son ID. On suppose que fetchBook est une fonction qui récupère les données du livre et renvoie une Promesse.
+        //Une fois la Promesse résolue, un nouvel élément div est créé et peuplé avec les données du livre, y compris le titre, l'ID, l'auteur, la description, l'image, et une icône de suppression. Ce div est ensuite ajouté à pochListDiv, l'ajoutant au HTML.
+        //L'icône de suppression a un attribut de données data-id qui contient l'ID du livre. Cela peut être utilisé pour identifier quel livre supprimer lorsque l'icône est cliquée.
+        fetchBook(id).then(function(book) {
+            var result = document.createElement('div');
+            result.innerHTML = `
+                <h3>${book.title}</h3> 
+                <p>ID: ${book.id}</p>
+                <p>Auteur: ${book.author}</p> 
+                <p>Description: ${book.description}</p> 
+                <img src="${book.image}" alt="Image du livre"> 
+                <i class="fas fa-trash delete" data-id="${book.id}"></i> `;
+            pochListDiv.appendChild(result);
+        });
+    });
+}
+
+
 //Cette fonction ajoute un livre à la liste de livres à lire (pochList). Elle vérifie d'abord si le livre est déjà dans la liste. Si ce n'est pas le cas, elle ajoute le livre à la liste et met à jour la liste dans le sessionStorage.
 function addBookToPochList(id) {
     var pochList = JSON.parse(sessionStorage.getItem('pochList')) || [];
@@ -105,6 +134,7 @@ function addBookToPochList(id) {
         document.getElementById('pochList').appendChild(book);
     }
 }
+
 //Cette fonction supprime un livre de la liste de livres à lire. Elle trouve l'index du livre dans la liste, le supprime de la liste et met à jour la liste dans le sessionStorage.
 function removeBookFromPochList(id) {
     var pochList = JSON.parse(sessionStorage.getItem('pochList'));
