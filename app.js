@@ -1,4 +1,5 @@
 
+//the best
 
 //Cette partie du code ajoute un écouteur d'événements au bouton "addBookButton". Lorsque ce bouton est cliqué, le formulaire d'ajout de livre (addBookForm) est affiché et le bouton lui-même est caché.
 document.getElementById('addBookButton').addEventListener('click', function() {
