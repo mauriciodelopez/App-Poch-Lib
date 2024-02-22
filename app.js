@@ -91,6 +91,7 @@ function displayResults(data) {
 function displayPochList() {
     //Cette ligne récupère l'élément 'pochList' du stockage de session, le parse d'une chaîne JSON en un objet JavaScript (ou tableau dans ce cas), et l'assigne à la variable pochList. Si 'pochList' n'existe pas dans le stockage de session, elle se réinitialise à un tableau vide.
     var pochList = JSON.parse(sessionStorage.getItem('pochList')) || [];
+    //var pochList = JSON.parse(localStorage.getItem('pochList')) || [];
     //Cette ligne récupère l'élément HTML avec l'id 'pochList' et l'assigne à la variable pochListDiv.
     var pochListDiv = document.getElementById('pochList');
     //Cette ligne efface le HTML interne de pochListDiv, supprimant ainsi tous les livres précédemment affichés.
@@ -119,13 +120,13 @@ function displayPochList() {
 //Cette fonction ajoute un livre à la liste de livres à lire (pochList). Elle vérifie d'abord si le livre est déjà dans la liste. Si ce n'est pas le cas, elle ajoute le livre à la liste et met à jour la liste dans le sessionStorage.
 function addBookToPochList(id) {
     var pochList = JSON.parse(sessionStorage.getItem('pochList')) || [];
-
+    //var pochList = JSON.parse(localStorage.getItem('pochList')) || [];
     if (pochList.includes(id)) {
         alert('Vous ne pouvez ajouter deux fois le même livre');
     } else {
         pochList.push(id);//
         sessionStorage.setItem('pochList', JSON.stringify(pochList));// Cette ligne stocke la liste de lecture dans le sessionStorage.
-
+        //localStorage.setItem('pochList', JSON.stringify(pochList));
         var book = document.querySelector(`[data-id="${id}"]`).parentNode.cloneNode(true);
         book.querySelector('.bookmark').className = 'fas fa-trash delete';
         book.querySelector('.delete').addEventListener('click', function() {
@@ -138,19 +139,22 @@ function addBookToPochList(id) {
 //Cette fonction supprime un livre de la liste de livres à lire. Elle trouve l'index du livre dans la liste, le supprime de la liste et met à jour la liste dans le sessionStorage.
 function removeBookFromPochList(id) {
     var pochList = JSON.parse(sessionStorage.getItem('pochList'));
+    //var pochList = JSON.parse(localStorage.getItem('pochList'));
     var index = pochList.indexOf(id);
     
     if (index !== -1) {
         pochList.splice(index, 1);
         sessionStorage.setItem('pochList', JSON.stringify(pochList));
-
+        //localStorage.setItem('pochList', JSON.stringify(pochList));
         var book = document.querySelector(`[data-id="${id}"]`);
         book.parentNode.removeChild(book);
     }
 }
 //Cette partie du code ajoute un écouteur d'événements à l'objet window. Lorsque la page est chargée, elle récupère la liste de livres à lire du sessionStorage et appelle la fonction fetchBook() pour chaque livre de la liste.
 window.addEventListener('load', function() {
+    displayPochList();
     var pochList = JSON.parse(sessionStorage.getItem('pochList')) || [];
+    //var pochList = JSON.parse(localStorage.getItem('pochList')) || [];
     pochList.forEach(function(id) {
         fetchBook(id);
     });
