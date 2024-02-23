@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Poch'Lib</title>
     <meta charset="utf-8" />
+    <title>Poch'Lib</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div id="myBooks">
-        <img src="logo.png" alt="Logo">
-        <h1 class="title">Poch'Lib</h1>
+        <img src="logo.png" alt="Logo" id="logo">
+        <header>
+            <h1 class="title">Poch'Lib</h1>
+        </header>
+        <h2 class="h2">Nouveau Livre</h2>
         <button id="addBookButton">Ajouter un livre</button>
         <div id="addBookForm" style="display: none;">
             <form id="searchForm">
@@ -22,14 +25,20 @@
                 <input type="submit" value="Rechercher">
                 <button id="cancelButton" type="button">Annuler</button>
             </form>
+        <div id="results">
+            <h3 class="h3">Ma poch'liste</h3>
+            <!-- resultados de la busqueda autor y titulo -->
+        <div id="pochList">
+        <div id="search">
+            <!-- Aquí puedes agregar el contenido para la búsqueda -->
+        <div id="books">
+            <!-- Aquí puedes agregar el contenido para los libros -->
         </div>
-        <div id="results"></div>
-        <h2>Ma poch'liste</h2>
-        <!-- resultados de la busqueda autor y titulo -->
-        <div id="pochList"></div>
-            
-            <!-- La poch'liste sera affichée ici -->
     </div>
+    </div>
+    </div>
+</div>
+</div>
     <script src="app.js"></script>
 </body>
 </html>

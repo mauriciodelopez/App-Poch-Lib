@@ -1,0 +1,179 @@
+/* Styles généraux */
+body {
+    align-items: center;
+    background: #f0f0f0 url('texture.png');
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+}
+#bookTitle, #author {
+    background-color: #4CAF50; /* Cambia este color al que desees */
+    color: white; /* Cambia este color al que desees */
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px; /* Añade bordes redondeados */
+    transition: background-color 0.3s; /* Añade una transición suave al cambiar el color de fondo */
+}
+
+#bookTitle:hover, #author:hover {
+    background-color: #45a049; /* Cambia este color al que desees */
+}
+
+#bookTitle, #author {
+    display: block;
+}
+#bookTitle, #author {
+    font-size: 30px; /* Aumenta este valor para hacer la fuente más grande */
+}
+#cancelButton {
+    background-color: red;
+}
+
+input[type="submit"] {
+    background-color: greenyellow; /* Cambia 'blue' al color que desees */
+}
+
+#submit, #cancelButton {
+    background-color: #4CAF50; /* Cambia este color al que desees */
+    color: white; /* Cambia este color al que desees */
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px; /* Añade bordes redondeados */
+    transition: background-color 0.3s; /* Añade una transición suave al cambiar el color de fondo */
+}
+
+#submit:hover, #cancelButton:hover {
+    background-color: #45a049; /* Cambia este color al que desees */
+}
+
+
+input[type="submit"], #cancelButton {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    width: 200px;
+    height: 50px;
+    border: none; /* quitar el borde */
+    cursor: pointer; /* cambiar el cursor a un puntero cuando se pasa por encima */
+    text-align: left; /* centrar el texto */
+    display: block; /* hacer que los botones se muestren en línea */
+    font-size: 16px; /* tamaño del texto */
+    margin: 4px 2px; /* margen alrededor de los botones */
+    transition-duration: 0.4s; /* duración de la transición al pasar el ratón por encima */
+}
+
+
+input[type="submit"], #author {
+    margin-bottom: 20px;
+    
+}
+.title {
+    text-align: center;
+    border: 2px solid black; /* Cambia 'black' al color que desees */
+    width: 100%;
+
+}
+
+
+.h2 {
+    text-align: center;
+}
+
+.h3 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+#bookTitle, #author {
+    width: 80%;
+    box-sizing: border-box;
+}
+
+
+#addBookButton {
+    width: 250px;
+    height: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px; /* Añade bordes redondeados */
+    transition: background-color 0.3s, transform 0.3s; /* Añade una transición suave al cambiar el color de fondo y al transformar el botón */
+    box-shadow: 0 9px #999;   
+}
+#addBookButton:hover {
+    background-color: #45a049; /* Cambia este color al que desees */
+}
+
+#addBookButton:active {
+    background-color: #3e8e41; /* Cambia este color al que desees */
+    box-shadow: 0 5px #666; /* Cambia la sombra al presionar el botón */
+    transform: translateY(4px); /* Mueve el botón hacia abajo al presionarlo */
+}
+
+#results {
+    border-top: 1px solid black; /* Línea de separación */
+    /* Resto de las propiedades */
+}
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#logo {
+    width: 150px; /* Ajusta este valor según sea necesario */
+    height: auto; /* Esto mantendrá la proporción de la imagen */
+    border-radius: 50%; /* Esto hará que la imagen sea circular */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Esto añadirá una sombra alrededor de la imagen */
+    transition: transform 0.3s; /* Esto añadirá una transición suave al transformar la imagen */
+}
+
+#logo:hover {
+    transform: scale(1.1); /* Esto hará que la imagen se agrande ligeramente cuando pases el cursor sobre ella */
+}
+
+
+/* Styles spécifiques aux mobiles */
+@media (max-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+
+    #search, #books, #pochList, #logo {
+        width: 100%;
+    }
+}
+
+/* Styles spécifiques aux tablettes et ordinateurs */
+@media (min-width: 601px) {
+    body {
+        font-size: 20px;
+    }
+
+    #search, #books, #pochList {
+        width: 75%;
+        margin: auto;
+    }
+
+    #logo {
+        width: 200px;  /* Cambia este valor para ajustar el ancho en tabletas y ordenadores */
+    }
+
+}

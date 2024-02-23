@@ -89,14 +89,22 @@ function displayResults(data) {
 }
 //La fonction displayPochList est utilisée pour afficher une liste de livres qui sont stockés dans le stockage de session du navigateur.
 //En résumé, cette fonction récupère les données de chaque livre dans le 'pochList' du stockage de session, crée un nouveau div pour chaque livre avec ses données, et l'ajoute au HTML.
+//La fonction displayPochList() est utilisée pour afficher la liste des livres à lire (ou "pochList") dans le navigateur.
 function displayPochList() {
+    //Cette ligne récupère la liste des livres à lire du stockage local du navigateur. Si cette liste n'existe pas, une liste vide est utilisée à la place.
     var pochList = JSON.parse(localStorage.getItem('pochList')) || [];
+    //Cette ligne récupère l'élément HTML avec l'ID 'pochList'. C'est là que la liste des livres à lire sera affichée.
     var pochListDiv = document.getElementById('pochList');
-    pochListDiv.innerHTML = ''; // Efface la liste actuelle dans le HTML
+    //Cette ligne efface tout le contenu HTML actuel de l'élément 'pochList'. Cela permet de s'assurer que la liste est vide avant d'y ajouter les livres.
+    pochListDiv.innerHTML = ''; 
 
-    pochList.forEach(function(id) {  
+    //Cette ligne parcourt chaque livre dans la liste des livres à lire. Pour chaque livre, elle fait ce qui suit :
+    pochList.forEach(function(id) {
+        //Cette ligne appelle la fonction fetchBook(id) pour récupérer les données du livre. Une fois que ces données sont récupérées, elle fait ce qui suit :
         fetchBook(id).then(function(book) {
+            //Cette ligne crée un nouvel élément div pour afficher les données du livre.
             var result = document.createElement('div');
+            //Cette ligne définit le contenu HTML de l'élément div. Elle utilise les données du livre pour remplir ce contenu.
             result.innerHTML = `
                 <h3>${book.title}</h3> 
                 <p>ID: ${book.id}</p>
@@ -105,13 +113,14 @@ function displayPochList() {
                 <img src="${book.image}" alt="Image du livre"> 
                 <i class="fas fa-trash delete" data-id="${book.id}"></i> `;
 
-            // Ajoute l'écouteur d'événements après la création de l'élément
+            //Cette ligne ajoute un écouteur d'événements à l'élément avec la classe 'delete' dans l'élément div. Lorsque cet élément est cliqué, elle fait ce qui suit :
             result.querySelector('.delete').addEventListener('click', function() {
+                //Cette ligne appelle la fonction removeBookFromPochList(id) pour supprimer le livre de la liste des livres à lire.
                 removeBookFromPochList(id);
-                // Recharge la liste après la suppression d'un livre
+                //Cette ligne appelle la fonction displayPochList() pour mettre à jour l'affichage de la liste des livres à lire.
                 displayPochList();
             });
-
+            //Cette ligne ajoute l'élément div à l'élément 'pochList'. Cela permet d'afficher le livre dans la liste des livres à lire.
             pochListDiv.appendChild(result);
         });
     });
