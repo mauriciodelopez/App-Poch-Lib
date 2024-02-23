@@ -1,8 +1,9 @@
 /* Styles généraux */
 body {
     align-items: center;
-    background: #f0f0f0 url('texture.png');
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5dc;
+    color: #333;
+    font-family: 'Georgia', serif;
     padding: 10px;
 }
 #bookTitle, #author {
@@ -29,9 +30,6 @@ body {
 }
 #bookTitle, #author {
     font-size: 30px; /* Aumenta este valor para hacer la fuente más grande */
-}
-#cancelButton {
-    background-color: red;
 }
 
 input[type="submit"] {
@@ -78,20 +76,37 @@ input[type="submit"], #author {
     
 }
 .title {
+    background: lightgrey;
+    color: #fff;
+    padding: 10px;
     text-align: center;
-    border: 2px solid black; /* Cambia 'black' al color que desees */
+    border: 1px solid black; /* Cambia 'black' al color que desees */
     width: 100%;
+    font-family: 'roboto', sans-serif; /* Cambia 'Arial' a la fuente que desees */
+    font-size: 50px; /* Cambia este valor al que desees */
+    color: white; /* Cambia este color al que desees */
+    text-align: center; /* Centra el texto */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    letter-spacing: 2px; /* Añade espacio entre las letras */
+    border-bottom: 1px solid #333; /* Añade una línea debajo del título */
+    padding-bottom: 10px;/* Añade espacio debajo del título */
 
 }
-
-
-.h2 {
-    text-align: center;
+h1, h2, h3 {
+    font-family: 'Times New Roman', serif;
 }
 
+.title, h2 {
+    text-align: center; /* Alinea el texto al centro */
+    width: 90%; /* Asegura que los elementos ocupen todo el ancho disponible */
+}
+
+h2 {
+    margin-top: 20px; /* Añade espacio encima del h2 */
+}
 .h3 {
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    
 }
 
 #bookTitle, #author {
@@ -101,7 +116,7 @@ input[type="submit"], #author {
 
 
 #addBookButton {
-    width: 250px;
+    width: 500px;
     height: 50px;
     display: block;
     margin-left: auto;
@@ -129,9 +144,10 @@ input[type="submit"], #author {
 }
 
 #results {
-    border-top: 1px solid black; /* Línea de separación */
-    /* Resto de las propiedades */
+    border-top: 2px solid #333; /* Cambia estos valores al que desees */
+    padding-top: 10px; /* Añade espacio encima del contenido */
 }
+
 #header {
     display: flex;
     justify-content: center;
@@ -147,6 +163,11 @@ input[type="submit"], #author {
 
 #logo:hover {
     transform: scale(1.1); /* Esto hará que la imagen se agrande ligeramente cuando pases el cursor sobre ella */
+}
+
+img[src="unavailable.png"] {
+    width: 200px; /* Cambia este valor al que desees */
+    height: auto; /* Esto mantendrá la proporción de la imagen */
 }
 
 
