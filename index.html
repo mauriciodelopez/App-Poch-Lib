@@ -1,44 +1,40 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- Déclaration du type de document -->
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>Poch'Lib</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta charset="utf-8" /> <!-- Encodage des caractères UTF-8 -->
+    <title>Poch'Lib</title> <!-- Titre de la page -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Méta-balise pour la compatibilité avec les appareils mobiles -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Lien vers la police Roboto de Google Fonts -->
+    <link rel="stylesheet" type="text/css" href="style.css"> <!-- Lien vers le fichier CSS des styles personnalisés -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Lien vers la bibliothèque Font Awesome pour les icônes -->
 </head>
 <body>
-    <div id="myBooks">
+    <div id="myBooks"> <!-- Conteneur principal -->
         <header>
-            <h1 class="title">Poch'Lib</h1>
+            <h1 class="title">Poch'Lib</h1> <!-- Titre principal de la page -->
         </header>
-        <h2 class="h2">Nouveau Livre</h2>
-        <button id="addBookButton">Ajouter un livre</button>
-        <div id="addBookForm" style="display: none;">
+        <h2 class="h2">Nouveau Livre</h2> <!-- Titre secondaire -->
+        <button id="addBookButton">Ajouter un livre</button> <!-- Bouton pour ajouter un nouveau livre -->
+        <div style="height: 50px;"></div>
+        <div id="addBookForm" style="display: none;"> <!-- Formulaire pour ajouter un nouveau livre (initialement caché) -->
             <form id="searchForm">
-                <label for="bookTitle">Titre du livre</label>
-                <input type="text" id="bookTitle" name="bookTitle" required>
-                <label for="author">Auteur</label>
-                <input type="text" id="author" name="author" required>
-                <input type="submit" value="Rechercher">
-                <button id="cancelButton" type="button">Annuler</button>
+                <label for="bookTitle">Titre du livre</label> <!-- Étiquette pour le titre du livre -->
+                <input type="text" id="bookTitle" name="bookTitle" required> <!-- Champ de saisie pour le titre du livre -->
+                <label for="author">Auteur</label> <!-- Étiquette pour l'auteur du livre -->
+                <input type="text" id="author" name="author" required> <!-- Champ de saisie pour l'auteur du livre -->
+                <input type="submit" value="Rechercher"> <!-- Bouton de soumission du formulaire pour rechercher des livres -->
+                <button id="cancelButton" type="button">Annuler</button> <!-- Bouton pour annuler la recherche -->
             </form>
-        <div id="search">
-            <!-- Ici vous pouvez ajouter le contenu pour la recherche -->
-        <div id="books">
-            <!-- Ici vous pouvez ajouter le contenu pour la recherche -->
         </div>
-    
     </div>
-</div>
-</div>
-    <p style="margin-top: 40px;"></p>
+
     <div id="results">
-        <div id="searchResults"></div>
-        <div class="card-container"></div>
+        <div class="card-container"></div> <!-- Conteneur pour afficher les résultats de recherche -->
     </div>
-    <div id="pochList"></div>
-    <script src="app.js"></script>
+
+    <div id="pochList">
+        <div class="card-container"></div> <!-- Conteneur pour afficher la liste des livres ajoutés -->
+    </div>
+    <script src="app.js"></script> <!-- Lien vers le fichier JavaScript -->
 </body>
 </html>

@@ -1,252 +1,293 @@
 /* Styles généraux */
 body {
-    align-items: center;
-    background-color: white;
-    color: #333;
-    font-family: 'Georgia', serif;
-    padding: 10px;
+    align-items: center; /* Centre le contenu verticalement */
+    background-color: white; /* Fond blanc */
+    color: #333; /* Couleur du texte gris foncé */
+    font-family: 'Georgia', serif; /* Police serif */
+    padding: 10px; /* Espacement interne */
 }
+/* Styles pour les champs du titre du livre et de l'auteur */
 #bookTitle, #author {
-    /*background-color: #c8f4c9;*/ /* Cambia este color al que desees */
-    color: white; /* Cambia este color al que desees */
-    border: 2px solid black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px; /* Añade bordes redondeados */
-    /*transition: background-color 0.3s;*/ /* Añade una transición suave al cambiar el color de fondo */
+    background-color: white; /* Fond blanc */
+    color: black; /* Couleur du texte noir */
+    border: 2px solid black; /* Bordure noire de 2px */
+    padding: 15px 32px; /* Espacement interne */
+    text-align: center; /* Texte centré */
+    text-decoration: none; /* Pas de décoration de texte */
+    display: inline-block; /* Afficher en ligne avec la même taille */
+    font-size: 15px; /* Taille de la police */
+    margin: 4px 2px; /* Marge */
+    cursor: pointer; /* Curseur pointeur */
+    border-radius: 4px; /* Bords arrondis */
 }
 
-#bookTitle:hover, #author:hover {
-    /*background-color: #45a049;*/ /* Cambia este color al que desees */
+/* Styles pour les champs du titre du livre et de l'auteur (réécriture) */
+#bookTitle, #author {
+    display: block; /* Afficher comme bloc */
+    font-size: 30px; /* Taille de la police */
 }
 
-#bookTitle, #author {
-    display: block;
-}
-#bookTitle, #author {
-    font-size: 30px; /* Aumenta este valor para hacer la fuente más grande */
-}
-
+/* Styles pour le bouton d'envoi du formulaire */
 input[type="submit"] {
-    background-color: rgb(140, 235, 149); /* Cambia 'blue' al color que desees */
+    background-color: rgb(69, 108, 73); /* Fond vert */
 }
 
+/* Styles pour les boutons d'envoi et d'annulation */
 #submit, #cancelButton {
-    background-color:   #e83b0c; /* Cambia este color al que desees */
-    color: white; /* Cambia este color al que desees */
-    border: none;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px; /* Añade bordes redondeados */
-    transition: background-color 0.3s; /* Añade una transición suave al cambiar el color de fondo */
+    background-color: #e83b0c; /* Fond rouge */
+    color: white; /* Couleur du texte blanc */
+    border: none; /* Pas de bordure */
+    padding: 15px 32px; /* Espacement interne */
+    text-align: center; /* Texte centré */
+    text-decoration: none; /* Pas de décoration de texte */
+    display: inline-block; /* Afficher en ligne avec la même taille */
+    font-size: 16px; /* Taille de la police */
+    margin: 4px 2px; /* Marge */
+    cursor: pointer; /* Curseur pointeur */
+    border-radius: 4px; /* Bords arrondis */
+    transition: background-color 0.3s; /* Transition douce */
 }
 
-#submit:hover, #cancelButton:hover {
-    /*background-color: #45a049;*/ /* Cambia este color al que desees */
-}
-
-
+/* Styles pour les boutons d'envoi et d'annulation (réécriture) */
 input[type="submit"], #cancelButton {
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    width: 200px;
-    height: 50px;
-    border: none; /* quitar el borde */
-    cursor: pointer; /* cambiar el cursor a un puntero cuando se pasa por encima */
-    text-align: left; /* centrar el texto */
-    display: block; /* hacer que los botones se muestren en línea */
-    font-size: 16px; /* tamaño del texto */
-    margin: 4px 2px; /* margen alrededor de los botones */
-    transition-duration: 0.4s; /* duración de la transición al pasar el ratón por encima */
+    margin-bottom: 20px; /* Marge inférieure */
+    padding: 10px 20px; /* Espacement interne */
+    width: 200px; /* Largeur */
+    height: 50px; /* Hauteur */
+    border: none; /* Sans bordure */
+    cursor: pointer; /* Curseur pointeur */
+    text-align: left; /* Texte aligné à gauche */
+    display: block; /* Afficher en bloc */
+    font-size: 16px; /* Taille de la police */
+    margin: 4px 2px; /* Marge */
+    transition-duration: 0.4s; /* Durée de la transition */
 }
 
-
+/* Styles pour les boutons d'envoi et le champ de l'auteur (réécriture) */
 input[type="submit"], #author {
-    margin-bottom: 20px;
-    
+    margin-bottom: 20px; /* Marge inférieure */
+    color: black; /* Couleur du texte noir */
 }
+
+/* Styles pour le bouton d'envoi (réécriture) */
+input[type="submit"] {
+    margin-bottom: 20px; /* Marge inférieure */
+    color: white; /* Couleur du texte blanc */
+}
+
+/* Styles pour le titre */
 .title {
-    background: lightgrey;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid black; /* Cambia 'black' al color que desees */
-    width: 100%;
-    font-family: 'roboto', sans-serif; /* Cambia 'Arial' a la fuente que desees */
-    font-size: 50px; /* Cambia este valor al que desees */
-    color: white; /* Cambia este color al que desees */
-    text-align: center; /* Centra el texto */
-    text-transform: uppercase; /* Convierte el texto a mayúsculas */
-    letter-spacing: 2px; /* Añade espacio entre las letras */
-    border-bottom: 1px solid #333; /* Añade una línea debajo del título */
-    padding-bottom: 10px;/* Añade espacio debajo del título */
-    border-radius: 4px;
-    
-
+    background: lightgrey; /* Fond gris clair */
+    color: #fff; /* Couleur du texte blanc */
+    padding: 10px; /* Espacement interne */
+    text-align: center; /* Texte centré */
+    border: 1px solid black; /* Bordure noire de 1px */
+    width: 100%; /* Largeur complète */
+    font-family: 'roboto', sans-serif; /* Police Roboto ou sans-serif */
+    font-size: 50px; /* Taille de la police */
+    color: gray; /* Couleur du texte gris */
+    text-transform: uppercase; /* Transforme le texte en majuscules */
+    letter-spacing: 2px; /* Espace entre les lettres */
+    border-bottom: 1px solid #333; /* Bordure inférieure */
+    padding-bottom: 10px; /* Espacement inférieur */
+    border-radius: 4px; /* Bords arrondis */
 }
+
+/* Styles pour les titres */
 h1, h2, h3 {
-    font-family: 'Times New Roman', serif;
+    font-family: 'Times New Roman', serif; /* Police Times New Roman ou serif */
 }
 
+/* Styles pour le titre et h2 (réécriture) */
 .title, .h2 {
-    text-align: center; /* Alinea el texto al centro */
-    width: 100%; /* Asegura que los elementos ocupen todo el ancho disponible */
+    text-align: center; /* Texte centré */
+    width: 100%; /* Largeur complète */
 }
 
+/* Styles pour h2 */
 h2 {
-    margin-top: 20px; /* Añade espacio encima del h2 */
+    margin-top: 20px; /* Marge supérieure */
 }
+
+/* Styles pour h3 */
 .h3 {
-    text-align: center;
-    font-size: 35px;
-    
+    text-align: center; /* Texte centré */
+    font-size: 35px; /* Taille de la police */
 }
 
+/* Styles pour les champs du titre du livre et de l'auteur */
 #bookTitle, #author {
-    width: 80%;
-    box-sizing: border-box;
+    width: 80%; /* Largeur de 80% */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur */
 }
 
-
+/* Styles pour le bouton d'ajout de livre */
 #addBookButton {
-    width: 300px;
-    height: 50px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
-    background-color: #4CAF50;
-    border: none;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 25px;
-    cursor: pointer;
-    border-radius: 4px; /* Añade bordes redondeados */
-    transition: background-color 0.3s, transform 0.3s; /* Añade una transición suave al cambiar el color de fondo y al transformar el botón */
-    box-shadow: 0 9px #999;   
+    width: 300px; /* Largeur de 300px */
+    height: 50px; /* Hauteur de 50px */
+    display: block; /* Afficher en bloc */
+    margin-left: auto; /* Marge gauche automatique */
+    margin-right: auto; /* Marge droite automatique */
+    color: white; /* Couleur du texte blanc */
+    background-color: #4CAF50; /* Fond vert */
+    border: none; /* Sans bordure */
+    padding: 15px 32px; /* Espacement interne */
+    text-align: center; /* Texte centré */
+    text-decoration: none; /* Sans décoration de texte */
+    font-size: 25px; /* Taille de la police */
+    cursor: pointer; /* Curseur pointeur */
+    border-radius: 4px; /* Bords arrondis */
+    transition: background-color 0.3s, transform 0.3s; /* Transition douce */
+    box-shadow: 0 9px #999; /* Ombre */
 }
+
+/* Styles pour le bouton d'ajout de livre lors du survol de la souris */
 #addBookButton:hover {
-    background-color: #45a049; /* Cambia este color al que desees */
+    background-color: #45a049; /* Fond vert plus foncé */
 }
 
+/* Styles pour le bouton d'ajout de livre lors du clic */
 #addBookButton:active {
-    background-color: #3e8e41; /* Cambia este color al que desees */
-    box-shadow: 0 5px #666; /* Cambia la sombra al presionar el botón */
-    transform: translateY(4px); /* Mueve el botón hacia abajo al presionarlo */
+    background-color: #3e8e41; /* Fond vert foncé */
+    box-shadow: 0 5px #666; /* Ombre */
+    transform: translateY(4px); /* Déplacement vers le bas */
 }
 
+/* Styles pour les résultats de recherche */
 #results {
-    border-top: 2px solid #333; /* Cambia estos valores al que desees */
-    padding-top: 10px; /* Añade espacio encima del contenido */
+    border-top: 2px solid #333; /* Bordure supérieure de 2px */
+    padding-top: 10px; /* Espacement supérieur */
+    margin: 0 auto;
+    text-align: center;
 }
 
+/* Styles pour l'en-tête */
 #header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Afficher comme flexbox */
+    justify-content: center; /* Justifier le contenu au centre */
+    align-items: center; /* Aligner les éléments au centre */
 }
+
+/* Styles pour le logo */
 #logo {
-    width: 150px; /* Ajusta este valor según sea necesario */
-    height: auto; /* Esto mantendrá la proporción de la imagen */
-    border-radius: 50%; /* Esto hará que la imagen sea circular */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Esto añadirá una sombra alrededor de la imagen */
-    transition: transform 0.3s; /* Esto añadirá una transición suave al transformar la imagen */
+    width: 150px; /* Largeur de 150px */
+    height: auto; /* Hauteur automatique */
+    border-radius: 50%; /* Bords arrondis */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ombre */
+    transition: transform 0.3s; /* Transition douce */
 }
 
+/* Styles pour le logo lors du survol de la souris */
 #logo:hover {
-    transform: scale(1.1); /* Esto hará que la imagen se agrande ligeramente cuando pases el cursor sobre ella */
+    transform: scale(1.1); /* Mise à l'échelle à 110% */
 }
 
+/* Styles pour les images avec la source "unavailable.png" */
 img[src="unavailable.png"] {
-    width: 200px; /* Cambia este valor al que desees */
-    height: auto; /* Esto mantendrá la proporción de la imagen */
+    width: 200px; /* Largeur de 200px */
+    height: auto; /* Hauteur automatique */
+}
+#contentSection {
+    margin-bottom: 20px; /* Marge inférieure pour séparer le contenu de la liste de livres */
 }
 
-
-/* Styles spécifiques aux mobiles */
+/* Styles spécifiques pour les appareils mobiles */
 @media (max-width: 600px) {
     body {
-        font-size: 18px;
+        font-size: 18px; /* Taille de la police */
     }
 
     #search, #books, #pochList, #logo {
-        width: 100%;
+        width: 100%; /* Largeur complète */
     }
 }
 
-/* Styles spécifiques aux tablettes et ordinateurs */
+/* Styles spécifiques pour les tablettes et les ordinateurs */
 @media (min-width: 601px) {
     body {
-        font-size: 20px;
+        font-size: 20px; /* Taille de la police */
     }
 
     #search, #books, #pochList {
-        width: 75%;
-        margin: auto;
+        width: 75%; /* Largeur de 75% */
+        margin: auto; /* Marge automatique */
     }
 
     #logo {
-        width: 200px; 
+        width: 200px; /* Largeur de 200px */
     }
-
 }
+
+/* Styles pour les cartes */
 
 .card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    width:690px;
-    height:600px;
-    box-sizing: border-box;
+    border: 1px solid #ccc; /* Bordure de 1px solide */
+    border-radius: 5px; /* Bords arrondis */
+    padding: 10px; /* Espacement interne */
+    margin: 10px; /* Marge */
+    width: calc(25% - 20px); /* Largeur de 25% moins la marge */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur */
+    display: inline-block; /* Afficher comme bloc en ligne */
+    vertical-align: top; /* Alignement vertical supérieur */
+    position: relative; /* Position relative */
+    background-color: lightgrey; /* Fond gris clair */
+}
+#pochList .card {
     display: inline-block;
-    vertical-align:top;
-    position: relative;
+    vertical-align: top;
+    width: 500px ;
+    height: 400px; 
+    margin: 20px;
 }
 
-
+/* Styles pour les images à l'intérieur des cartes */
 .card img {
-    width: 40%;
-    height: 60%;
-    display: block;
-    margin: 0 auto;
+    width: 30%; /* Largeur de 30% */
+    height: 50%; /* Hauteur de 40% */
+    display: block; /* Afficher comme bloc */
+    margin: auto; /* Marge automatique */
 }
 
 
+/* Styles pour les titres à l'intérieur des cartes */
 .card h3 {
-    font-size: 16px; 
-    margin-bottom: 5px;
+    font-size: 16px; /* Taille de la police */
+    margin-bottom: 5px; /* Marge inférieure */
 }
 
+/* Styles pour les paragraphes à l'intérieur des cartes */
 .card p {
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-.card .bookmark {
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    font-size: 14px; /* Taille de la police */
+    margin-bottom: 5px; /* Marge inférieure */
 }
 
+/* Styles pour les icônes de signet et de suppression à l'intérieur des cartes */
+.card .bookmark,
 .card .delete {
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    position: absolute; /* Position absolue */
+    top: 5px; /* Alignement supérieur */
+    right: 5px; /* Alignement à droite */
+    color: rgb(69, 108, 73); /* Couleur verte */
 }
 
+/* Styles pour le conteneur de cartes */
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: flex; /* Afficher comme flexbox */
+    flex-wrap: wrap; /* Envelopper les éléments */
+    justify-content: space-between; /* Justifier le contenu entre les éléments */
+    margin: 0 -10px; /* Négatif de la marge des cartes pour compenser */
+}
+
+/* Styles spécifiques pour les tablettes */
+@media (max-width: 1024px) {
+    .card {
+        width: calc(50% - 20px); /* Largeur de 50% moins la marge */
+    }
+}
+
+/* Styles spécifiques pour les téléphones mobiles */
+@media (max-width: 600px) {
+    .card {
+        width: calc(100% - 20px); /* Largeur de 100% moins la marge */
+    }
 }
