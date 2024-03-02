@@ -225,25 +225,33 @@ img[src="unavailable.png"] {
     border-radius: 5px; /* Bords arrondis */
     padding: 10px; /* Espacement interne */
     margin: 10px; /* Marge */
-    width: calc(25% - 20px); /* Largeur de 25% moins la marge */
+    width: 290px; /* Ancho fijo */
+    height: 290px; /* Altura fija */
     box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur */
     display: inline-block; /* Afficher comme bloc en ligne */
     vertical-align: top; /* Alignement vertical supérieur */
     position: relative; /* Position relative */
     background-color: lightgrey; /* Fond gris clair */
+    overflow: auto;
+    
 }
-#pochList .card {
-    display: inline-block;
-    vertical-align: top;
-    width: 500px ;
-    height: 400px; 
-    margin: 20px;
+/* Las tarjetas dentro de #pochlist */
+#pochlist .card {
+    border: 1px solid #ccc; /* Bordure de 1px solide */
+    border-radius: 5px; /* Bords arrondis */
+    padding: 10px; /* Espacement interne */
+    margin: 10px; /* Marge */
+    width: calc(50% - 20px); /* Largeur de 50% menos la marge */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur */
+    display: inline-block; /* Afficher como bloque en línea */
+    vertical-align: top; /* Alignement vertical supérieur */
+    position: relative; /* Position relative */
+    background-color: lightgrey; /* Fond gris clair */
 }
-
 /* Styles pour les images à l'intérieur des cartes */
 .card img {
     width: 30%; /* Largeur de 30% */
-    height: 50%; /* Hauteur de 40% */
+    height: 35%; /* Hauteur de 40% */
     display: block; /* Afficher comme bloc */
     margin: auto; /* Marge automatique */
 }
@@ -257,7 +265,7 @@ img[src="unavailable.png"] {
 
 /* Styles pour les paragraphes à l'intérieur des cartes */
 .card p {
-    font-size: 14px; /* Taille de la police */
+    font-size: 10px; /* Taille de la police 14 */
     margin-bottom: 5px; /* Marge inférieure */
 }
 
@@ -291,3 +299,7 @@ img[src="unavailable.png"] {
         width: calc(100% - 20px); /* Largeur de 100% moins la marge */
     }
 }
+
+
+
+/*width: calc(20% - 20px); /* Largeur de 25% moins la marge */
